@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Click Counter with Local Storage</title>
+</head>
+<body>
+  <button id="clickButton">Click Me</button>
+  <p>Click Count: <span id="clickCount">0</span></p>
+
+  <script>
+    const clickButton = document.getElementById("clickButton");
+    const clickCountDisplay = document.getElementById("clickCount");
+
+    let clickCount = localStorage.getItem("clickCount") || 0;
+    clickCountDisplay.textContent = clickCount;
+
+    clickButton.addEventListener("click", function() {
+      clickCount++;
+      clickCountDisplay.textContent = clickCount;
+      localStorage.setItem("clickCount", clickCount);
+    });
+  </script>
+</body>
+</html>
